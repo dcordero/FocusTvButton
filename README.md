@@ -64,11 +64,12 @@ The custom properties can be configured directly on the Storyboard using IBInspe
 To integrate FocusTvButton into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
 platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'FocusTvButton', :git => 'https://github.com/dcordero/FocusTvButton.git'
+    pod 'FocusTvButton', '~> 0.0.1'
 end
 ```
 
