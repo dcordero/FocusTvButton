@@ -1,0 +1,16 @@
+PODS:
+  - FocusTvButton (0.0.1)
+
+DEPENDENCIES:
+  - FocusTvButton (from `..`)
+
+EXTERNAL SOURCES:
+  FocusTvButton:
+    :path: ..
+
+SPEC CHECKSUMS:
+  FocusTvButton: 69ec576e07b9d61a6a8e6c3094e66b1405aa0f95
+
+PODFILE CHECKSUM: 1a19e3a05cef969348b08dfc869f55b4de9177f9
+
+COCOAPODS: 1.0.1

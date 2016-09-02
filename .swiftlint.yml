@@ -1,0 +1,16 @@
+whitelist_rules:
+  - colon
+  - comma
+  - empty_count
+  - closing_brace
+  - mark
+  - trailing_semicolon
+  - return_arrow_whitespace
+  - redundant_nil_coalesing
+  - private_unit_test
+  - operator_whitespace
+  - opening_brace
+  - legacy_constructor
+  - legacy_constant
+  - legacy_cggeometry_functions
+  - leading_whitespace
