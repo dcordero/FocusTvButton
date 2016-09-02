@@ -1,6 +1,6 @@
 # FocusTvButton
 
-Light wrapper of UIButton that allow extra customization for tvOS
+Light wrapper of UIButton that allows extra customization for tvOS
 
 ![](art/preview.gif)
 
