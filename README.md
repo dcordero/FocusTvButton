@@ -47,7 +47,7 @@ Due to the fact that FocusTvButton is a subclass of UIButton, the first step is 
 
 ![](art/buttonObjectLibrary.png)
 
-Then changes the value of "Custom Class" to "FocusTvButton", and changes the Button type to "Custom" to avoid the default focus behaviour.
+Then change the value of "Custom Class" to "FocusTvButton", and the Button type to "Custom" to avoid the default focus behaviour.
 
 ![](art/buttonCustomClass.png) ![](art/buttonTypeCustom.png)
 
