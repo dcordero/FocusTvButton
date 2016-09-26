@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/dcordero/FocusTvButton'
   s.source = { :git => 'https://github.com/dcordero/FocusTvButton.git', :tag => s.version }
   s.tvos.deployment_target = '9.0'
-  s.source_files = 'Source/*.swift'
+  s.source_files = 'FocusTvButton/Source/*.swift'
 end
