@@ -36,8 +36,8 @@ FocusTvButton is a subclass of UIButton, so it can be created and used as a regu
 
 ```swift
 let myButton = FocusTvButton()
-myButton.focusedBackgroundColor = UIColor.redColor()
-myButton.normalBackgroundColor = UIColor.whiteColor()
+myButton.focusedBackgroundColor = .red
+myButton.normalBackgroundColor = .white
 myButton.cornerRadius = 12.0
 ```
 
@@ -69,7 +69,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'FocusTvButton', '~> 0.0.2'
+    pod 'FocusTvButton', '~> 0.1.0'
 end
 ```
 
