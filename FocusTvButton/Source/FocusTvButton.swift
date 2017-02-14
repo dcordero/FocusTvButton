@@ -12,7 +12,11 @@ import UIKit
 public class FocusTvButton: UIButton {
     
     @IBInspectable public var focusedBackgroundColor: UIColor = .red
-    @IBInspectable public var normalBackgroundColor: UIColor = .white
+    @IBInspectable public var normalBackgroundColor: UIColor = .white {
+        didSet {
+            backgroundColor = normalBackgroundColor
+        }
+    }
     @IBInspectable public var cornerRadius: CGFloat = 5.0
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2
     @IBInspectable public var focusedShadowRadius: CGFloat = 10
