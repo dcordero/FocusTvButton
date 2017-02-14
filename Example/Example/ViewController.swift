@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let button = FocusTvButton(frame: CGRectMake(100, 100, 200, 200))
-        button.focusedBackgroundColor = .greenColor()
-        button.normalBackgroundColor = .lightGrayColor()
-        button.setTitle("Button", forState: .Normal)
+        let button = FocusTvButton(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+        button.focusedBackgroundColor = .green
+        button.normalBackgroundColor = .lightGray
+        button.setTitle("Button", for: .normal)
         view.addSubview(button)
     }
 }

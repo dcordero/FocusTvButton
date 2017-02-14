@@ -11,25 +11,24 @@ import UIKit
 
 public class FocusTvButton: UIButton {
     
-    @IBInspectable public var focusedBackgroundColor: UIColor = .redColor()
-    @IBInspectable public var normalBackgroundColor: UIColor = .whiteColor() {
+    @IBInspectable public var focusedBackgroundColor: UIColor = .red
+    @IBInspectable public var normalBackgroundColor: UIColor = .white {
         didSet {
             backgroundColor = normalBackgroundColor
         }
     }
-
     @IBInspectable public var cornerRadius: CGFloat = 5.0
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2
     @IBInspectable public var focusedShadowRadius: CGFloat = 10
     @IBInspectable public var focusedShadowOpacity: Float = 0.25
-    @IBInspectable public var shadowColor: CGColor = UIColor.blackColor().CGColor
+    @IBInspectable public var shadowColor: CGColor = UIColor.black.cgColor
     @IBInspectable public var shadowOffSetFocused: CGSize = CGSize(width: 0, height: 27)
-    @IBInspectable public var animationDuration: NSTimeInterval = 0.2
-    @IBInspectable public var focusedTitleColor: UIColor = .whiteColor()
-    @IBInspectable public var normalTitleColor: UIColor = .whiteColor()
+    @IBInspectable public var animationDuration: TimeInterval = 0.2
+    @IBInspectable public var focusedTitleColor: UIColor = .white
+    @IBInspectable public var normalTitleColor: UIColor = .white
     
     public override var buttonType: UIButtonType {
-        return .Custom
+        return .custom
     }
     
     public override init(frame: CGRect) {
@@ -46,43 +45,43 @@ public class FocusTvButton: UIButton {
         setUpView()
     }
     
-    override public func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+    override public func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         coordinator.addCoordinatedAnimations({
-            self.focused ? self.applyFocusedStyle() : self.applyUnfocusedStyle()
+            self.isFocused ? self.applyFocusedStyle() : self.applyUnfocusedStyle()
         }, completion: nil)
     }
     
-    override public func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-        UIView.animateWithDuration(
-            animationDuration,
+    override public func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        UIView.animate(
+            withDuration: animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
-                self.transform = CGAffineTransformIdentity
+                self.transform = CGAffineTransform.identity
                 self.layer.shadowOffset = CGSize(width: 0, height: 10)
             })
     }
     
-    override public func pressesCancelled(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-        guard focused else { return }
-        UIView.animateWithDuration(
-            animationDuration,
+    override public func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard isFocused else { return }
+        UIView.animate(
+            withDuration: animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
-                self.transform = CGAffineTransformMakeScale(self.focusedScaleFactor, self.focusedScaleFactor)
+                self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.layer.shadowOffset = self.shadowOffSetFocused
             })
     }
     
-    override public func pressesEnded(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-        guard focused else { return }
-        UIView.animateWithDuration(
-            animationDuration,
+    override public func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard isFocused else { return }
+        UIView.animate(
+            withDuration: animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
-                self.transform = CGAffineTransformMakeScale(self.focusedScaleFactor, self.focusedScaleFactor)
+                self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.layer.shadowOffset = self.shadowOffSetFocused
             })
     }
@@ -93,8 +92,8 @@ public class FocusTvButton: UIButton {
         layer.cornerRadius = cornerRadius
         clipsToBounds = true
         backgroundColor = normalBackgroundColor
-        setTitleColor(normalTitleColor, forState: .Normal)
-        setTitleColor(focusedTitleColor, forState: .Focused)
+        setTitleColor(normalTitleColor, for: .normal)
+        setTitleColor(focusedTitleColor, for: .focused)
         layer.shadowOpacity = self.focusedShadowOpacity
         layer.shadowRadius = self.focusedShadowRadius
         layer.shadowColor = self.shadowColor
@@ -102,12 +101,12 @@ public class FocusTvButton: UIButton {
     }
     
     private func applyFocusedStyle() {
-        UIView.animateWithDuration(
-            self.animationDuration,
+        UIView.animate(
+            withDuration: self.animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
-                self.transform = CGAffineTransformMakeScale(self.focusedScaleFactor, self.focusedScaleFactor)
+                self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.clipsToBounds = false
                 self.backgroundColor = self.focusedBackgroundColor
             },
@@ -115,13 +114,13 @@ public class FocusTvButton: UIButton {
     }
     
     private func applyUnfocusedStyle() {
-        UIView.animateWithDuration(
-            self.animationDuration,
+        UIView.animate(
+            withDuration: self.animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
                 self.clipsToBounds = true
-                self.transform = CGAffineTransformIdentity
+                self.transform = CGAffineTransform.identity
                 self.backgroundColor = self.normalBackgroundColor
             },
             completion: nil)
