@@ -21,6 +21,13 @@ Custom properties:
 - Duration of the focus animation
 - Title color when focuses/unfocused
 
+Two color, linear gradient properties:
+- Focused background end color
+- Unfocused background end color
+- gradient start & end points
+
+A simple two color, linear gradient can be configured by setting either "background end" color properties. If neither "background end" color properties are set then `FocusTvButton` will use a solid background color by default.
+
 ## Requirements
 
 - tvOS 9.0+
@@ -28,9 +35,9 @@ Custom properties:
 
 ## Usage
 
-FocusTvButton can be integrated both programatically or embedded in a xib file.
+FocusTvButton can be integrated both programmatically or embedded in a xib file.
 
-## Programatically
+## Programmatically
 
 FocusTvButton is a subclass of UIButton, so it can be created and used as a regular UIButton.
 
@@ -39,6 +46,12 @@ let myButton = FocusTvButton()
 myButton.focusedBackgroundColor = .red
 myButton.normalBackgroundColor = .white
 myButton.cornerRadius = 12.0
+
+// with optional gradient
+myButton.focusedBackgroundEndColor = .green
+myButton.normalBackgroundColor = .black
+myButton.gradientStartPoint = .zero
+myButton.gradientEndPoint = CGPoint(x: 0, y: 1)
 ```
 
 ## Embedded in a xib or storyboard file
@@ -47,7 +60,7 @@ Due to the fact that FocusTvButton is a subclass of UIButton, the first step is 
 
 ![](art/buttonObjectLibrary.png)
 
-Then change the value of "Custom Class" to "FocusTvButton", and the Button type to "Custom" to avoid the default focus behaviour.
+Then change the value of "Custom Class" to "FocusTvButton", and the Button type to "Custom" to avoid the default focus behavior.
 
 ![](art/buttonCustomClass.png) ![](art/buttonTypeCustom.png)
 
@@ -76,4 +89,3 @@ end
 ### Manually
 
 If you prefer, you can also integrate FocusTvButton into your project manually, just copying FocusTvButton.swift to your project.
-
