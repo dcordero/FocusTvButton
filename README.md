@@ -24,7 +24,7 @@ Custom properties:
 Two color, linear gradient properties:
 - Focused background end color
 - Unfocused background end color
-- gradient start and end points
+- gradient start & end points
 
 A simple two color, linear gradient can be configured by setting either "background end" color properties. If neither "background end" color properties are set then `FocusTvButton` will use a solid background color by default.
 
@@ -50,8 +50,8 @@ myButton.cornerRadius = 12.0
 // with optional gradient
 myButton.focusedBackgroundEndColor = .green
 myButton.normalBackgroundColor = .black
-
-
+myButton.gradientStartPoint = .zero
+myButton.gradientEndPoint = CGPoint(x: 0, y: 1)
 ```
 
 ## Embedded in a xib or storyboard file
