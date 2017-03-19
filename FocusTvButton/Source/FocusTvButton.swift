@@ -12,9 +12,15 @@ import UIKit
 public class FocusTvButton: UIButton {
     
     @IBInspectable public var focusedBackgroundColor: UIColor = .red
+    @IBInspectable public var focusedBackgroundEndColor: UIColor?
     @IBInspectable public var normalBackgroundColor: UIColor = .white {
         didSet {
-            backgroundColor = normalBackgroundColor
+            gradientView.colors = normalGradientBackgroundColors
+        }
+    }
+    @IBInspectable public var normalBackgroundEndColor: UIColor? {
+        didSet {
+            gradientView.colors = normalGradientBackgroundColors
         }
     }
     @IBInspectable public var cornerRadius: CGFloat = 5.0
@@ -26,6 +32,20 @@ public class FocusTvButton: UIButton {
     @IBInspectable public var animationDuration: TimeInterval = 0.2
     @IBInspectable public var focusedTitleColor: UIColor = .white
     @IBInspectable public var normalTitleColor: UIColor = .white
+    @IBInspectable public var gradientStartPoint: CGPoint = .zero
+    @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1)
+    
+    private var focusedGradientBackgroundColors: [CGColor] {
+        let endColor = focusedBackgroundEndColor ?? focusedBackgroundColor
+        return [focusedBackgroundColor.cgColor, endColor.cgColor]
+    }
+    
+    private var normalGradientBackgroundColors: [CGColor] {
+        let endColor = normalBackgroundEndColor ?? normalBackgroundColor
+        return [normalBackgroundColor.cgColor, endColor.cgColor]
+    }
+    
+    private let gradientView = GradientView()
     
     public override var buttonType: UIButtonType {
         return .custom
@@ -42,6 +62,7 @@ public class FocusTvButton: UIButton {
     }
     
     override public func awakeFromNib() {
+        super.awakeFromNib()
         setUpView()
     }
     
@@ -59,7 +80,7 @@ public class FocusTvButton: UIButton {
                 guard let `self` = self else { return }
                 self.transform = CGAffineTransform.identity
                 self.layer.shadowOffset = CGSize(width: 0, height: 10)
-            })
+        })
     }
     
     override public func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
@@ -71,7 +92,7 @@ public class FocusTvButton: UIButton {
                 guard let `self` = self else { return }
                 self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.layer.shadowOffset = self.shadowOffSetFocused
-            })
+        })
     }
     
     override public func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
@@ -83,47 +104,99 @@ public class FocusTvButton: UIButton {
                 guard let `self` = self else { return }
                 self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.layer.shadowOffset = self.shadowOffSetFocused
-            })
+        })
     }
     
     // MARK: - Private
     
     private func setUpView() {
+        setUpGradientView()
         layer.cornerRadius = cornerRadius
         clipsToBounds = true
-        backgroundColor = normalBackgroundColor
         setTitleColor(normalTitleColor, for: .normal)
         setTitleColor(focusedTitleColor, for: .focused)
-        layer.shadowOpacity = self.focusedShadowOpacity
-        layer.shadowRadius = self.focusedShadowRadius
-        layer.shadowColor = self.shadowColor
-        layer.shadowOffset = self.shadowOffSetFocused
+        layer.shadowOpacity = focusedShadowOpacity
+        layer.shadowRadius = focusedShadowRadius
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffSetFocused
+    }
+    
+    private func setUpGradientView() {
+        gradientView.frame = bounds
+        gradientView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        gradientView.layer.cornerRadius = cornerRadius
+        gradientView.startPoint = gradientStartPoint
+        gradientView.endPoint = gradientEndPoint
+        gradientView.colors = normalGradientBackgroundColors
+        addSubview(gradientView)
     }
     
     private func applyFocusedStyle() {
         UIView.animate(
-            withDuration: self.animationDuration,
+            withDuration: animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
                 self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
                 self.clipsToBounds = false
-                self.backgroundColor = self.focusedBackgroundColor
+                self.gradientView.colors = self.focusedGradientBackgroundColors
             },
             completion: nil)
     }
     
     private func applyUnfocusedStyle() {
         UIView.animate(
-            withDuration: self.animationDuration,
+            withDuration: animationDuration,
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
                 self.clipsToBounds = true
                 self.transform = CGAffineTransform.identity
-                self.backgroundColor = self.normalBackgroundColor
+                self.gradientView.colors = self.normalGradientBackgroundColors
             },
             completion: nil)
     }
 }
 
+final private class GradientView: UIView {
+    
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+    
+    var colors: [Any]? {
+        set {
+            gradientLayer.colors = newValue
+        }
+        
+        get {
+            return gradientLayer.colors
+        }
+    }
+    
+    var startPoint: CGPoint {
+        set {
+            gradientLayer.startPoint = newValue
+        }
+        
+        get {
+            return gradientLayer.startPoint
+        }
+    }
+    
+    var endPoint: CGPoint {
+        set {
+            gradientLayer.endPoint = newValue
+        }
+        
+        get {
+            return gradientLayer.endPoint
+        }
+    }
+    
+    // MARK: - Private
+    
+    private lazy var gradientLayer: CAGradientLayer = {
+        return self.layer as! CAGradientLayer
+    }()
+}
