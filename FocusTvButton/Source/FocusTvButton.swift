@@ -30,8 +30,16 @@ public class FocusTvButton: UIButton {
     @IBInspectable public var shadowColor: CGColor = UIColor.black.cgColor
     @IBInspectable public var shadowOffSetFocused: CGSize = CGSize(width: 0, height: 27)
     @IBInspectable public var animationDuration: TimeInterval = 0.2
-    @IBInspectable public var focusedTitleColor: UIColor = .white
-    @IBInspectable public var normalTitleColor: UIColor = .white
+    @IBInspectable public var focusedTitleColor: UIColor = .white {
+        didSet {
+            setTitleColor(focusedTitleColor, for: .focused)
+        }
+    }
+    @IBInspectable public var normalTitleColor: UIColor = .white {
+        didSet {
+            setTitleColor(normalTitleColor, for: .normal)
+        }
+    }
     @IBInspectable public var gradientStartPoint: CGPoint = .zero
     @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1)
     
