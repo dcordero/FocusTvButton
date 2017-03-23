@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class FocusTvButton: UIButton {
+open class FocusTvButton: UIButton {
     
     @IBInspectable public var focusedBackgroundColor: UIColor = .red
     @IBInspectable public var focusedBackgroundEndColor: UIColor?
@@ -55,7 +55,7 @@ public class FocusTvButton: UIButton {
     
     private let gradientView = GradientView()
     
-    public override var buttonType: UIButtonType {
+    open override var buttonType: UIButtonType {
         return .custom
     }
     
@@ -69,18 +69,18 @@ public class FocusTvButton: UIButton {
         setUpView()
     }
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         setUpView()
     }
     
-    override public func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+    override open func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         coordinator.addCoordinatedAnimations({
             self.isFocused ? self.applyFocusedStyle() : self.applyUnfocusedStyle()
         }, completion: nil)
     }
     
-    override public func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    override open func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         UIView.animate(
             withDuration: animationDuration,
             animations: {
@@ -91,7 +91,7 @@ public class FocusTvButton: UIButton {
         })
     }
     
-    override public func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    override open func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard isFocused else { return }
         UIView.animate(
             withDuration: animationDuration,
@@ -103,7 +103,7 @@ public class FocusTvButton: UIButton {
         })
     }
     
-    override public func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    override open func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard isFocused else { return }
         UIView.animate(
             withDuration: animationDuration,
