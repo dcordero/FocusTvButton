@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'FocusTvButton'
   s.authors = { 'David Cordero' => 'dcorderoramirez@gmail.com'}
-  s.version = '0.1.3'
+  s.version = '0.1.4'
   s.license = 'MIT'
   s.summary = 'Light wrapper of UIButton that allow extra customization for tvOS'
   s.homepage = 'https://github.com/dcordero/FocusTvButton'
