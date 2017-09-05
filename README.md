@@ -4,6 +4,8 @@ Light wrapper of UIButton that allows extra customization for tvOS
 
 ![](art/preview.gif)
 
+If you would like to have the same level of customization in tableview cells, you should definitely check out [TvOSCustomizableTableViewCell](https://github.com/zattoo/TvOSCustomizableTableViewCell)
+
 ## Description
 
 FocusTvButton allows the customization of UIButtons in tvOS, adding extra properties to customize layout attributes which are not customizable on UIButtons out of the box.
