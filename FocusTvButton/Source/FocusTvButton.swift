@@ -82,8 +82,7 @@ open class FocusTvButton: UIButton {
     
     override open func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard presses.first?.type == .select else {
-            super.pressesBegan(presses, with: event)
-            return
+            return super.pressesBegan(presses, with: event)
         }
         
         UIView.animate(
@@ -98,8 +97,7 @@ open class FocusTvButton: UIButton {
     
     override open func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard presses.first?.type == .select else {
-            super.pressesCancelled(presses, with: event)
-            return
+            return super.pressesCancelled(presses, with: event)
         }
         guard isFocused else { return }
         UIView.animate(
@@ -114,8 +112,7 @@ open class FocusTvButton: UIButton {
     
     override open func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard presses.first?.type == .select else {
-            super.pressesEnded(presses, with: event)
-            return
+            return super.pressesEnded(presses, with: event)
         }
         guard isFocused else { return }
         UIView.animate(
