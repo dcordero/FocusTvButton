@@ -84,7 +84,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'FocusTvButton', '~> 1.0.0'
+    pod 'FocusTvButton', '~> 2.0.0'
 end
 ```
 
