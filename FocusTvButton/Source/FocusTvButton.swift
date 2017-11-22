@@ -40,8 +40,16 @@ open class FocusTvButton: UIButton {
             setTitleColor(normalTitleColor, for: .normal)
         }
     }
-    @IBInspectable public var gradientStartPoint: CGPoint = .zero
-    @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1)
+    @IBInspectable public var gradientStartPoint: CGPoint = .zero {
+        didSet {
+            gradientView.startPoint = gradientStartPoint
+        }
+    }
+    @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1) {
+        didSet {
+            gradientView.endPoint = gradientEndPoint
+        }
+    }
     
     private var focusedGradientBackgroundColors: [CGColor] {
         let endColor = focusedBackgroundEndColor ?? focusedBackgroundColor
