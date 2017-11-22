@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.1] - 2017-11-22
+
+- Adjust as expected when changing gradients
+
 ## [2.0.0] - 2017-09-21
 
 - Support Swift 4
