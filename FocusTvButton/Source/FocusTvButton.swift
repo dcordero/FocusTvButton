@@ -158,7 +158,10 @@ open class FocusTvButton: UIButton {
         gradientView.startPoint = gradientStartPoint
         gradientView.endPoint = gradientEndPoint
         gradientView.colors = normalGradientBackgroundColors
-        if let titleLabel = titleLabel {
+        if let imageView = imageView {
+            insertSubview(gradientView, belowSubview: imageView)
+        }
+        else if let titleLabel = titleLabel {
             insertSubview(gradientView, belowSubview: titleLabel)
         }
         else {
