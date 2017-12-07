@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         let button = FocusTvButton(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
         button.focusedBackgroundColor = .green
         button.normalBackgroundColor = .lightGray
+        button.cornerRadius = button.bounds.width / 2
         button.setTitle("Button", for: .normal)
+        
         view.addSubview(button)
     }
 }

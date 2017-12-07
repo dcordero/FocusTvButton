@@ -23,7 +23,11 @@ open class FocusTvButton: UIButton {
             gradientView.colors = normalGradientBackgroundColors
         }
     }
-    @IBInspectable public var cornerRadius: CGFloat = 5.0
+    @IBInspectable public var cornerRadius: CGFloat = 5.0 {
+        didSet {
+            self.setUpView()
+        }
+    }
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2
     @IBInspectable public var focusedShadowRadius: CGFloat = 10
     @IBInspectable public var focusedShadowOpacity: Float = 0.25
@@ -169,7 +173,6 @@ open class FocusTvButton: UIButton {
                 [weak self] in
                 guard let `self` = self else { return }
                 self.transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
-                self.clipsToBounds = false
                 self.gradientView.colors = self.focusedGradientBackgroundColors
             },
             completion: nil)
@@ -181,7 +184,6 @@ open class FocusTvButton: UIButton {
             animations: {
                 [weak self] in
                 guard let `self` = self else { return }
-                self.clipsToBounds = true
                 self.transform = CGAffineTransform.identity
                 self.gradientView.colors = self.normalGradientBackgroundColors
             },
