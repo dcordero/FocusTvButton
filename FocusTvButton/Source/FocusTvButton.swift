@@ -35,65 +35,65 @@ open class FocusTvButton: UIButton {
     }
     @IBInspectable public var cornerRadius: CGFloat = 5.0 {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2 {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var focusedShadowRadius: CGFloat = 10 {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     @IBInspectable public var focusedShadowOpacity: Float = 0.25 {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var shadowColor: CGColor = UIColor.black.cgColor {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var shadowOffSetFocused: CGSize = CGSize(width: 0, height: 27) {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var animationDuration: TimeInterval = 0.2 {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var focusedTitleColor: UIColor = .white {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     @IBInspectable public var normalTitleColor: UIColor = .white {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var gradientStartPoint: CGPoint = .zero {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
     @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1) {
         didSet {
-            self.updateView()
+            updateView()
         }
     }
     
@@ -193,10 +193,10 @@ open class FocusTvButton: UIButton {
         layer.shadowOffset = shadowOffSetFocused
         
         if isFocused {
-            transform = CGAffineTransform(scaleX: self.focusedScaleFactor, y: self.focusedScaleFactor)
+            transform = CGAffineTransform(scaleX: focusedScaleFactor, y: focusedScaleFactor)
         }
         else {
-            self.transform = CGAffineTransform.identity
+            transform = CGAffineTransform.identity
         }
     }
     
@@ -208,7 +208,7 @@ open class FocusTvButton: UIButton {
         gradientView.endPoint = gradientEndPoint
         
         if isFocused {
-            gradientView.colors = self.focusedGradientBackgroundColors
+            gradientView.colors = focusedGradientBackgroundColors
         }
         else {
             gradientView.colors = normalGradientBackgroundColors
@@ -285,6 +285,6 @@ final private class GradientView: UIView {
     // MARK: - Private
     
     private lazy var gradientLayer: CAGradientLayer = {
-        return self.layer as! CAGradientLayer
+        return layer as! CAGradientLayer
     }()
 }
