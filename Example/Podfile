@@ -1,8 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :tvos, '9.0'
+platform :tvos, '10.0'
 use_frameworks!
 
 target 'Example' do
   pod 'FocusTvButton', :path => '..'
+end
+
+target 'ExampleTests' do
+  pod 'FocusTvButton', :path => '..'
+  pod 'Snap.swift', :path => '../../Snap.swift'
 end
