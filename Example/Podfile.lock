@@ -4,18 +4,24 @@ PODS:
 
 DEPENDENCIES:
   - FocusTvButton (from `..`)
-  - Snap.swift (from `../../Snap.swift`)
+  - Snap.swift (from `https://github.com/dcordero/Snap.swift`, branch `tvOS`)
 
 EXTERNAL SOURCES:
   FocusTvButton:
     :path: ..
   Snap.swift:
-    :path: ../../Snap.swift
+    :branch: tvOS
+    :git: https://github.com/dcordero/Snap.swift
+
+CHECKOUT OPTIONS:
+  Snap.swift:
+    :commit: 9b6c653295e7cdf8a0ef63ddbd550d72a204c1cc
+    :git: https://github.com/dcordero/Snap.swift
 
 SPEC CHECKSUMS:
   FocusTvButton: 94270da23dceda9da0ecfb5f210a1e14f8f382c9
   Snap.swift: 278be4849c3829e9a2425709de7319cae01195b7
 
-PODFILE CHECKSUM: c8d4709d6a175ef7ec9561d701c5fdc43ecdc656
+PODFILE CHECKSUM: e27d23554ea1ce11d5b3d059975db8981d13743d
 
 COCOAPODS: 1.3.1

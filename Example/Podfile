@@ -9,5 +9,5 @@ end
 
 target 'ExampleTests' do
   pod 'FocusTvButton', :path => '..'
-  pod 'Snap.swift', :path => '../../Snap.swift'
+  pod 'Snap.swift', :git => 'https://github.com/dcordero/Snap.swift', :branch => 'tvOS'
 end
