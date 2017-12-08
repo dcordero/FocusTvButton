@@ -16,7 +16,7 @@ class ExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        isRecording = true
+        // isRecording = true
     }
     
     func test_BasicFocusedLayout() {
