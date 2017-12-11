@@ -1,4 +1,5 @@
-# FocusTvButton
+# FocusTvButton [![Build Status](https://travis-ci.org/dcordero/FocusTvButton.svg?branch=master)](https://travis-ci.org/dcordero/FocusTvButton)
+
 
 Light wrapper of UIButton that allows extra customization for tvOS
 
