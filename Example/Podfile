@@ -7,7 +7,3 @@ target 'Example' do
   pod 'FocusTvButton', :path => '..'
 end
 
-target 'ExampleTests' do
-  pod 'FocusTvButton', :path => '..'
-  pod 'Snap.swift', :git => 'https://github.com/dcordero/Snap.swift', :branch => 'tvOS'
-end
