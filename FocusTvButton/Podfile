@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :tvos, '10.0'
+use_frameworks!
+
+target 'FocusTvButtonTests' do
+  pod 'Snap.swift', :git => 'https://github.com/dcordero/Snap.swift', :branch => 'tvOS'
+end

@@ -7,15 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		377DB07D799B8852718F6027 /* Pods_FocusTvButtonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D8FEEE746F1FD708AB5E94 /* Pods_FocusTvButtonTests.framework */; };
 		FF036C0A1D990BAF008F8824 /* FocusTvButton.h in Headers */ = {isa = PBXBuildFile; fileRef = FF036C081D990BAF008F8824 /* FocusTvButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF036C121D990BD4008F8824 /* FocusTvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF036C111D990BD4008F8824 /* FocusTvButton.swift */; };
+		FFD72BE81FDE85EF00833ACA /* FocusTvButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD72BE71FDE85EF00833ACA /* FocusTvButtonTests.swift */; };
+		FFD72BEA1FDE85EF00833ACA /* FocusTvButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF036C051D990BAF008F8824 /* FocusTvButton.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FFD72BEB1FDE85EF00833ACA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF036BFC1D990BAF008F8824 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF036C041D990BAF008F8824;
+			remoteInfo = FocusTvButton;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		2068B5ECA9CC732FC77D2412 /* Pods-FocusTvButtonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTvButtonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FB55C5B2C34598B9F094355 /* Pods-FocusTvButtonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTvButtonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5D8FEEE746F1FD708AB5E94 /* Pods_FocusTvButtonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FocusTvButtonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF036C051D990BAF008F8824 /* FocusTvButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FocusTvButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF036C081D990BAF008F8824 /* FocusTvButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FocusTvButton.h; sourceTree = "<group>"; };
 		FF036C091D990BAF008F8824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF036C111D990BD4008F8824 /* FocusTvButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusTvButton.swift; sourceTree = "<group>"; };
+		FFD72BE51FDE85EF00833ACA /* FocusTvButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusTvButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD72BE71FDE85EF00833ACA /* FocusTvButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTvButtonTests.swift; sourceTree = "<group>"; };
+		FFD72BE91FDE85EF00833ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,14 +45,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFD72BE21FDE85EF00833ACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD72BEA1FDE85EF00833ACA /* FocusTvButton.framework in Frameworks */,
+				377DB07D799B8852718F6027 /* Pods_FocusTvButtonTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E7394B84352E21C5EFD109C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2068B5ECA9CC732FC77D2412 /* Pods-FocusTvButtonTests.debug.xcconfig */,
+				5FB55C5B2C34598B9F094355 /* Pods-FocusTvButtonTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA7ABBDC37BFBC361AF0227B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5D8FEEE746F1FD708AB5E94 /* Pods_FocusTvButtonTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF036BFB1D990BAF008F8824 = {
 			isa = PBXGroup;
 			children = (
 				FF036C071D990BAF008F8824 /* FocusTvButton */,
+				FFD72BE61FDE85EF00833ACA /* FocusTvButtonTests */,
 				FF036C061D990BAF008F8824 /* Products */,
+				4E7394B84352E21C5EFD109C /* Pods */,
+				DA7ABBDC37BFBC361AF0227B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				FF036C051D990BAF008F8824 /* FocusTvButton.framework */,
+				FFD72BE51FDE85EF00833ACA /* FocusTvButtonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +111,15 @@
 			);
 			path = Source;
 			sourceTree = SOURCE_ROOT;
+		};
+		FFD72BE61FDE85EF00833ACA /* FocusTvButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFD72BE71FDE85EF00833ACA /* FocusTvButtonTests.swift */,
+				FFD72BE91FDE85EF00833ACA /* Info.plist */,
+			);
+			path = FocusTvButtonTests;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -95,18 +153,44 @@
 			productReference = FF036C051D990BAF008F8824 /* FocusTvButton.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FFD72BE41FDE85EF00833ACA /* FocusTvButtonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD72BEF1FDE85EF00833ACA /* Build configuration list for PBXNativeTarget "FocusTvButtonTests" */;
+			buildPhases = (
+				5DAC3372FC27DC7355C54632 /* [CP] Check Pods Manifest.lock */,
+				FFD72BE11FDE85EF00833ACA /* Sources */,
+				FFD72BE21FDE85EF00833ACA /* Frameworks */,
+				FFD72BE31FDE85EF00833ACA /* Resources */,
+				CCBFC4B965B6880BCABA3960 /* [CP] Embed Pods Frameworks */,
+				651A06D07080D03E6109C153 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFD72BEC1FDE85EF00833ACA /* PBXTargetDependency */,
+			);
+			name = FocusTvButtonTests;
+			productName = FocusTvButtonTests;
+			productReference = FFD72BE51FDE85EF00833ACA /* FocusTvButtonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FF036BFC1D990BAF008F8824 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "David Cordero";
 				TargetAttributes = {
 					FF036C041D990BAF008F8824 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					FFD72BE41FDE85EF00833ACA = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,6 +208,7 @@
 			projectRoot = "";
 			targets = (
 				FF036C041D990BAF008F8824 /* FocusTvButton */,
+				FFD72BE41FDE85EF00833ACA /* FocusTvButtonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -136,7 +221,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFD72BE31FDE85EF00833ACA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DAC3372FC27DC7355C54632 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FocusTvButtonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		651A06D07080D03E6109C153 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCBFC4B965B6880BCABA3960 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Snap.swift/Snap_swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Snap_swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF036C001D990BAF008F8824 /* Sources */ = {
@@ -147,7 +293,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFD72BE11FDE85EF00833ACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD72BE81FDE85EF00833ACA /* FocusTvButtonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFD72BEC1FDE85EF00833ACA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF036C041D990BAF008F8824 /* FocusTvButton */;
+			targetProxy = FFD72BEB1FDE85EF00833ACA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FF036C0B1D990BAF008F8824 /* Debug */ = {
@@ -287,6 +449,58 @@
 			};
 			name = Release;
 		};
+		FFD72BED1FDE85EF00833ACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2068B5ECA9CC732FC77D2412 /* Pods-FocusTvButtonTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FocusTvButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.dcordero.FocusTvButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		FFD72BEE1FDE85EF00833ACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FB55C5B2C34598B9F094355 /* Pods-FocusTvButtonTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FocusTvButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.dcordero.FocusTvButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -304,6 +518,15 @@
 			buildConfigurations = (
 				FF036C0E1D990BAF008F8824 /* Debug */,
 				FF036C0F1D990BAF008F8824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFD72BEF1FDE85EF00833ACA /* Build configuration list for PBXNativeTarget "FocusTvButtonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD72BED1FDE85EF00833ACA /* Debug */,
+				FFD72BEE1FDE85EF00833ACA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

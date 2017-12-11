@@ -10,91 +10,74 @@ import UIKit
 
 
 open class FocusTvButton: UIButton {
+
+    @IBInspectable public var selectedBackgroundColor: UIColor = .black {
+        didSet { updateView() }
+    }
+
+    @IBInspectable public var selectedBackgroundEndColor: UIColor? {
+        didSet { updateView() }
+    }
     
     @IBInspectable public var focusedBackgroundColor: UIColor = .red {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var focusedBackgroundEndColor: UIColor? {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var normalBackgroundColor: UIColor = .white {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     @IBInspectable public var normalBackgroundEndColor: UIColor? {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
+    
     @IBInspectable public var cornerRadius: CGFloat = 5.0 {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2 {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var focusedShadowRadius: CGFloat = 10 {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     @IBInspectable public var focusedShadowOpacity: Float = 0.25 {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var shadowColor: CGColor = UIColor.black.cgColor {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var shadowOffSetFocused: CGSize = CGSize(width: 0, height: 27) {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var animationDuration: TimeInterval = 0.2 {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var focusedTitleColor: UIColor = .white {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     @IBInspectable public var normalTitleColor: UIColor = .white {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var gradientStartPoint: CGPoint = .zero {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1) {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
+    }
+    
+    open override var isSelected: Bool {
+        didSet { updateView() }
     }
     
     open override var buttonType: UIButtonType {
@@ -169,6 +152,11 @@ open class FocusTvButton: UIButton {
     
     // MARK: - Private
     
+    private var selectedGradientBackgroundColors: [CGColor] {
+        let endColor = selectedBackgroundEndColor ?? selectedBackgroundColor
+        return [selectedBackgroundColor.cgColor, endColor.cgColor]
+    }
+    
     private var focusedGradientBackgroundColors: [CGColor] {
         let endColor = focusedBackgroundEndColor ?? focusedBackgroundColor
         return [focusedBackgroundColor.cgColor, endColor.cgColor]
@@ -209,6 +197,9 @@ open class FocusTvButton: UIButton {
         
         if isFocused {
             gradientView.colors = focusedGradientBackgroundColors
+        }
+        else if isSelected {
+            gradientView.colors = selectedGradientBackgroundColors
         }
         else {
             gradientView.colors = normalGradientBackgroundColors

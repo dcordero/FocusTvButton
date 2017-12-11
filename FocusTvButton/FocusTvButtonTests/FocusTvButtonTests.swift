@@ -1,8 +1,8 @@
 //
-//  ExampleTests.swift
-//  ExampleTests
+//  FocusTvButtonTests.swift
+//  FocusTvButtonTests
 //
-//  Created by David Cordero on 08.12.17.
+//  Created by David Cordero on 11.12.17.
 //  Copyright © 2017 David Cordero. All rights reserved.
 //
 
@@ -10,40 +10,40 @@ import XCTest
 import Snap_swift
 import FocusTvButton
 
-class ExampleTests: XCTestCase {
+class FocusTvButtonTests: XCTestCase {
     
     static var stub_isFocused: Bool = false
     
     override func setUp() {
         super.setUp()
-        // isRecording = true
+        //isRecording = true
     }
     
     func test_BasicFocusedLayout() {
         // Given
-        ExampleTests.stub_isFocused = true
+        FocusTvButtonTests.stub_isFocused = true
         
         // When
         let sut = configuredFocusTvButton()
-
+        
         // Then
         expect(sut).toMatchSnapshot()
     }
     
     func test_BasicUnfocusedLayout() {
         // Given
-        ExampleTests.stub_isFocused = false
-
+        FocusTvButtonTests.stub_isFocused = false
+        
         // When
         let sut = configuredFocusTvButton()
-
+        
         // Then
         expect(sut).toMatchSnapshot()
     }
     
     func test_GradientBackgroundWhenFocused() {
         // Given
-        ExampleTests.stub_isFocused = true
+        FocusTvButtonTests.stub_isFocused = true
         
         // When
         let sut = configuredFocusTvButton()
@@ -60,7 +60,7 @@ class ExampleTests: XCTestCase {
     
     func test_GradientBackgroundWhenUnfocused() {
         // Given
-        ExampleTests.stub_isFocused = false
+        FocusTvButtonTests.stub_isFocused = false
         
         // When
         let sut = configuredFocusTvButton()
@@ -95,6 +95,6 @@ class ExampleTests: XCTestCase {
 
 extension FocusTvButton {
     open override var isFocused: Bool {
-        return ExampleTests.stub_isFocused
+        return FocusTvButtonTests.stub_isFocused
     }
 }
