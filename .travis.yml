@@ -1,4 +1,6 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
 script:
   - swiftlint
+  - pod install --project-directory=Example/
+  - xcodebuild test -workspace Example/Example.xcworkspace -scheme Example -destination 'platform=tvOS Simulator,name=Apple Tv 4K,OS=11.0'
