@@ -3,4 +3,4 @@ osx_image: xcode9.2
 script:
   - swiftlint
   - pod install --project-directory=FocusTvButton/
-  - xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination 'platform=tvOS Simulator,name=Apple Tv 4K,OS=11.0'
+  - xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination 'platform=tvOS Simulator,name=Apple Tv 4K,OS=11.2'
