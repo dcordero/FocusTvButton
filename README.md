@@ -15,6 +15,7 @@ Custom properties:
 
 - Focused background color
 - Unfocused background color
+- Selected background color
 - Corner radius
 - Scale factor when focused
 - Shadow radius when focused
