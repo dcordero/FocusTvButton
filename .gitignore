@@ -1,3 +1,7 @@
 .DS_Store
 xcuserdata/
 Pods
+
+# Snap.swift
+FocusTvButton/FocusTvButtonTests/Snap/Diff
+FocusTvButton/FocusTvButtonTests/Snap/Failed

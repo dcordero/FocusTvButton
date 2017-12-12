@@ -1,6 +1,13 @@
 language: objective-c
-osx_image: xcode9.2
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.2
+      env: DEVICE="Apple TV 4K"
+    - os: osx
+      osx_image: xcode9.2
+      env: DEVICE="Apple TV"
 script:
   - swiftlint
   - pod install --project-directory=FocusTvButton/
-  - xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination 'platform=tvOS Simulator,name=Apple Tv 4K,OS=11.2'
+  - xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=$DEVICE,OS=11.2"

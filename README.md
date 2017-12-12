@@ -28,6 +28,7 @@ Custom properties:
 Two color, linear gradient properties:
 - Focused background end color
 - Unfocused background end color
+- Selected background end color
 - gradient start & end points
 
 A simple two color, linear gradient can be configured by setting either "background end" color properties. If neither "background end" color properties are set then `FocusTvButton` will use a solid background color by default.
