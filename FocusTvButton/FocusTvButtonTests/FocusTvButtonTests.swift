@@ -13,6 +13,7 @@ import FocusTvButton
 class FocusTvButtonTests: XCTestCase {
     
     static var stub_isFocused: Bool = false
+    static var stub_isSelected: Bool = false
     
     override func setUp() {
         super.setUp()
@@ -22,7 +23,8 @@ class FocusTvButtonTests: XCTestCase {
     func test_BasicFocusedLayout() {
         // Given
         FocusTvButtonTests.stub_isFocused = true
-        
+        FocusTvButtonTests.stub_isSelected = false
+
         // When
         let sut = configuredFocusTvButton()
         
@@ -33,7 +35,8 @@ class FocusTvButtonTests: XCTestCase {
     func test_BasicUnfocusedLayout() {
         // Given
         FocusTvButtonTests.stub_isFocused = false
-        
+        FocusTvButtonTests.stub_isSelected = false
+
         // When
         let sut = configuredFocusTvButton()
         
@@ -41,10 +44,34 @@ class FocusTvButtonTests: XCTestCase {
         expect(sut).toMatchSnapshot()
     }
     
+    func test_BasicSelectedAndUnfocusedLayout() {
+        // Given
+        FocusTvButtonTests.stub_isFocused = false
+        FocusTvButtonTests.stub_isSelected = true
+
+        // When
+        let sut = configuredFocusTvButton()
+        
+        // Then
+        expect(sut).toMatchSnapshot()
+    }
+    
+    func test_BasicSelectedAndFocusedLayout() {
+        // Given
+        FocusTvButtonTests.stub_isFocused = true
+        FocusTvButtonTests.stub_isSelected = true
+        
+        // When
+        let sut = configuredFocusTvButton()
+        
+        // Then
+        expect(sut).toMatchSnapshot()
+    }
     func test_GradientBackgroundWhenFocused() {
         // Given
         FocusTvButtonTests.stub_isFocused = true
-        
+        FocusTvButtonTests.stub_isSelected = false
+
         // When
         let sut = configuredFocusTvButton()
         sut.focusedBackgroundEndColor = .green
@@ -61,10 +88,29 @@ class FocusTvButtonTests: XCTestCase {
     func test_GradientBackgroundWhenUnfocused() {
         // Given
         FocusTvButtonTests.stub_isFocused = false
-        
+        FocusTvButtonTests.stub_isSelected = false
+
         // When
         let sut = configuredFocusTvButton()
         sut.normalBackgroundEndColor = .purple
+        sut.gradientStartPoint = .zero
+        sut.gradientEndPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        sut.setNeedsFocusUpdate()
+        sut.updateFocusIfNeeded()
+        
+        // Then
+        expect(sut).toMatchSnapshot()
+    }
+    
+    func test_GradientBackgroundWhenSelectedAndUnfocused() {
+        // Given
+        FocusTvButtonTests.stub_isFocused = false
+        FocusTvButtonTests.stub_isSelected = true
+        
+        // When
+        let sut = configuredFocusTvButton()
+        sut.selectedBackgroundEndColor = .brown
         sut.gradientStartPoint = .zero
         sut.gradientEndPoint = CGPoint(x: 0.5, y: 0.5)
         
@@ -81,6 +127,7 @@ class FocusTvButtonTests: XCTestCase {
         let button = FocusTvButton(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         button.focusedBackgroundColor = .red
         button.normalBackgroundColor = .blue
+        button.selectedBackgroundColor = .yellow
         button.focusedTitleColor = .black
         button.normalTitleColor = .orange
         button.focusedScaleFactor = 2
@@ -88,6 +135,7 @@ class FocusTvButtonTests: XCTestCase {
         
         button.setTitle("Normal", for: .normal)
         button.setTitle("Focused", for: .focused)
+        button.setTitle("Selected", for: .selected)
         
         return button
     }
@@ -96,5 +144,14 @@ class FocusTvButtonTests: XCTestCase {
 extension FocusTvButton {
     open override var isFocused: Bool {
         return FocusTvButtonTests.stub_isFocused
+    }
+    
+    open override var isSelected: Bool {
+        set {
+            super.isSelected = isSelected
+        }
+        get {
+            return FocusTvButtonTests.stub_isSelected
+        }
     }
 }
