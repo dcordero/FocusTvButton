@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2017-12-12
+
 - Add tests
 - Fix bug when using an image as background it was not visiable because being added under the gradient
 - Support customization of isSelected status background color
