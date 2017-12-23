@@ -79,6 +79,12 @@ The custom properties can be configured directly on the Storyboard using IBInspe
 
 ### Cocoapods
 
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```
+$ gem install cocoapods
+```
+
 To integrate FocusTvButton into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
@@ -90,6 +96,31 @@ target '<Your Target Name>' do
     pod 'FocusTvButton', '~> 2.1.0'
 end
 ```
+
+Then, run the following command:
+
+```
+$ pod install
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with Homebrew using the following command:
+
+```
+$ brew update
+$ brew install carthage
+```
+
+To integrate FocusTvButton into your Xcode project using Carthage, specify it in your Cartfile:
+
+```
+github "dcordero/FocusTvButton" ~> 2.1.0
+```
+
+Run carthage update to build the framework and drag the built FocusTvButton.framework into your Xcode project.
 
 ### Manually
 
