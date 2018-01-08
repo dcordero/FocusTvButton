@@ -9,6 +9,7 @@ matrix:
       env: DEVICE="Apple TV"
 script:
   - bundle install
-  - swiftlint
+  - bundle exec pod repo update
   - bundle exec pod install --project-directory=FocusTvButton/
+  - swiftlint
   - xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=$DEVICE,OS=11.2"
