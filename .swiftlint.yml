@@ -14,3 +14,6 @@ whitelist_rules:
   - legacy_constant
   - legacy_cggeometry_functions
   - leading_whitespace
+
+excluded:
+  - ./FocusTvButton/Pods

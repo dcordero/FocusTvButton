@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Modify dependency to Snap.swift, using the fork is not longer needed
+
 ## [2.1.0] - 2017-12-12
 
 - Add tests
