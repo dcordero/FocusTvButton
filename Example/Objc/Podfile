@@ -4,6 +4,6 @@ platform :tvos, '10.0'
 use_frameworks!
 
 target 'Example' do
-  pod 'FocusTvButton', :path => '..'
+  pod 'FocusTvButton', :path => '../..'
 end
 
