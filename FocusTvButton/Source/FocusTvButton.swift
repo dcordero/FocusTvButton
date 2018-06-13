@@ -9,69 +9,90 @@
 import UIKit
 
 
+@objc
 open class FocusTvButton: UIButton {
 
+    @objc
     @IBInspectable public var selectedBackgroundColor: UIColor = .black {
         didSet { updateView() }
     }
 
+    @objc
     @IBInspectable public var selectedBackgroundEndColor: UIColor? {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var focusedBackgroundColor: UIColor = .red {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var focusedBackgroundEndColor: UIColor? {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var normalBackgroundColor: UIColor = .white {
         didSet { updateView() }
     }
+
+    @objc
     @IBInspectable public var normalBackgroundEndColor: UIColor? {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var cornerRadius: CGFloat = 5.0 {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var focusedScaleFactor: CGFloat = 1.2 {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var focusedShadowRadius: CGFloat = 10 {
         didSet { updateView() }
     }
+
+    @objc
     @IBInspectable public var focusedShadowOpacity: Float = 0.25 {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var shadowColor: CGColor = UIColor.black.cgColor {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var shadowOffSetFocused: CGSize = CGSize(width: 0, height: 27) {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var animationDuration: TimeInterval = 0.2 {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var focusedTitleColor: UIColor = .white {
         didSet { updateView() }
     }
+
+    @objc
     @IBInspectable public var normalTitleColor: UIColor = .white {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var gradientStartPoint: CGPoint = .zero {
         didSet { updateView() }
     }
-    
+
+    @objc
     @IBInspectable public var gradientEndPoint: CGPoint = CGPoint(x: 1, y: 1) {
         didSet { updateView() }
     }
