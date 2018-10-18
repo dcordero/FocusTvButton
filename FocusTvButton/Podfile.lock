@@ -1,16 +1,16 @@
 PODS:
-  - Snap.swift (0.2.3)
+  - Snap.swift (0.3.0)
 
 DEPENDENCIES:
-  - Snap.swift (~> 0.2.3)
+  - Snap.swift (~> 0.3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Snap.swift
 
 SPEC CHECKSUMS:
-  Snap.swift: 6960a86076a99fd96712e9a861f6ef1c78df6dda
+  Snap.swift: 7c9e859c279c252acd47ae283bd0d5ce7a6ed837
 
-PODFILE CHECKSUM: 7c95264bb9c304dd07e65a62d7932930f7b6d772
+PODFILE CHECKSUM: 6d7de221620dd8efe60748fe37988bfbd8887367
 
 COCOAPODS: 1.5.3
