@@ -2,7 +2,7 @@ language: objective-c
 matrix:
   include:
     - os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10
       env: DEVICE="Apple TV 4K"
     - os: osx
       osx_image: xcode9.2
