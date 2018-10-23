@@ -1,12 +1,16 @@
 PODS:
-  - Snap.swift (0.2.3)
+  - iOSSnapshotTestCase (2.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 2.2.0)
+  - iOSSnapshotTestCase/Core (2.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (2.2.0):
+    - iOSSnapshotTestCase/Core
 
 DEPENDENCIES:
-  - Snap.swift (~> 0.2.3)
+  - iOSSnapshotTestCase (~> 2.2.0)
 
 SPEC CHECKSUMS:
-  Snap.swift: 6960a86076a99fd96712e9a861f6ef1c78df6dda
+  iOSSnapshotTestCase: 415bd84f9dbba4ff45fede49d800bc7332fbedac
 
-PODFILE CHECKSUM: 7c95264bb9c304dd07e65a62d7932930f7b6d772
+PODFILE CHECKSUM: 99ff48c894b033576fe0bc9b52233a5dff591cf4
 
 COCOAPODS: 1.3.1
