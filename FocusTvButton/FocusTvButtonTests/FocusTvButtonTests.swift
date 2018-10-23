@@ -7,17 +7,17 @@
 //
 
 import XCTest
-import Snap_swift
+import FBSnapshotTestCase
 import FocusTvButton
 
-class FocusTvButtonTests: XCTestCase {
+class FocusTvButtonTests: FBSnapshotTestCase {
     
     static var stub_isFocused: Bool = false
     static var stub_isSelected: Bool = false
     
     override func setUp() {
         super.setUp()
-        //isRecording = true
+        // recordMode = true
     }
     
     func test_BasicFocusedLayout() {
@@ -29,7 +29,7 @@ class FocusTvButtonTests: XCTestCase {
         let sut = configuredFocusTvButton()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     func test_BasicUnfocusedLayout() {
@@ -41,7 +41,7 @@ class FocusTvButtonTests: XCTestCase {
         let sut = configuredFocusTvButton()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     func test_BasicSelectedAndUnfocusedLayout() {
@@ -53,7 +53,7 @@ class FocusTvButtonTests: XCTestCase {
         let sut = configuredFocusTvButton()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     func test_BasicSelectedAndFocusedLayout() {
@@ -65,7 +65,7 @@ class FocusTvButtonTests: XCTestCase {
         let sut = configuredFocusTvButton()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     func test_GradientBackgroundWhenFocused() {
         // Given
@@ -82,7 +82,7 @@ class FocusTvButtonTests: XCTestCase {
         sut.updateFocusIfNeeded()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     func test_GradientBackgroundWhenUnfocused() {
@@ -100,7 +100,7 @@ class FocusTvButtonTests: XCTestCase {
         sut.updateFocusIfNeeded()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     func test_GradientBackgroundWhenSelectedAndUnfocused() {
@@ -118,7 +118,7 @@ class FocusTvButtonTests: XCTestCase {
         sut.updateFocusIfNeeded()
         
         // Then
-        expect(sut).toMatchSnapshot()
+        FBSnapshotVerifyView(sut)
     }
     
     // Private
