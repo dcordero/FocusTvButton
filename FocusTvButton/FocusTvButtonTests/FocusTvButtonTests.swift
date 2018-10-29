@@ -17,7 +17,7 @@ class FocusTvButtonTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        //isRecording = true
+        // isRecording = true
     }
     
     func test_BasicFocusedLayout() {
