@@ -2,6 +2,7 @@
 [![Twitter: @dcordero](https://img.shields.io/badge/contact-@dcordero-blue.svg?style=flat)](https://twitter.com/dcordero)
 ![License MIT](https://img.shields.io/badge/license-MIT-green.svg)
 [![Build Status](https://travis-ci.org/dcordero/FocusTvButton.svg?branch=master)](https://travis-ci.org/dcordero/FocusTvButton)
+![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
 
 
 Light wrapper of UIButton that allows extra customization for tvOS
@@ -38,8 +39,8 @@ A simple two color, linear gradient can be configured by setting either "backgro
 
 ## Requirements
 
-- tvOS 9.0+
-- Xcode 7.3+
+- tvOS 10.0+
+- Xcode 10.0+
 
 ## Usage
 
@@ -96,7 +97,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'FocusTvButton', '~> 2.1.0'
+    pod 'FocusTvButton', '~> 2.2.0'
 end
 ```
 
@@ -120,7 +121,7 @@ $ brew install carthage
 To integrate FocusTvButton into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "dcordero/FocusTvButton" ~> 2.1.0
+github "dcordero/FocusTvButton" ~> 2.2.0
 ```
 
 Run carthage update to build the framework and drag the built FocusTvButton.framework into your Xcode project.
