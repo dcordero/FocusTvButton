@@ -101,7 +101,7 @@ open class FocusTvButton: UIButton {
         didSet { updateView() }
     }
     
-    open override var buttonType: UIButtonType {
+    open override var buttonType: UIButton.ButtonType {
         return .custom
     }
     
