@@ -1,16 +1,23 @@
 PODS:
-  - FocusTvButton (2.2.0)
+  - FocusTvButton (2.2.0):
+    - ZattooGradientView (~> 1.0.0)
+  - ZattooGradientView (1.0.0)
 
 DEPENDENCIES:
   - FocusTvButton (from `../..`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ZattooGradientView
 
 EXTERNAL SOURCES:
   FocusTvButton:
     :path: "../.."
 
 SPEC CHECKSUMS:
-  FocusTvButton: 35a9419c5aee5bae7d21cfe009441468769743af
+  FocusTvButton: 2945fa0cb8202986b0e78ed7d808cd7adec0f5ee
+  ZattooGradientView: 5ef6c93d60e080e7335d4e144d2ea7b623aa9b52
 
-PODFILE CHECKSUM: 4c1389cd6e79dc352d6b11a17fc297e6917d38dc
+PODFILE CHECKSUM: 5d6928ccf03405db69ebeb33a5d720840bbc26a8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

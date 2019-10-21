@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ZattooGradientView
 
 
 @objc
@@ -256,47 +257,4 @@ open class FocusTvButton: UIButton {
             },
             completion: nil)
     }
-}
-
-final private class GradientView: UIView {
-    
-    override class var layerClass: AnyClass {
-        return CAGradientLayer.self
-    }
-    
-    var colors: [Any]? {
-        set {
-            gradientLayer.colors = newValue
-        }
-        
-        get {
-            return gradientLayer.colors
-        }
-    }
-    
-    var startPoint: CGPoint {
-        set {
-            gradientLayer.startPoint = newValue
-        }
-        
-        get {
-            return gradientLayer.startPoint
-        }
-    }
-    
-    var endPoint: CGPoint {
-        set {
-            gradientLayer.endPoint = newValue
-        }
-        
-        get {
-            return gradientLayer.endPoint
-        }
-    }
-    
-    // MARK: - Private
-    
-    private lazy var gradientLayer: CAGradientLayer = {
-        return layer as! CAGradientLayer
-    }()
 }

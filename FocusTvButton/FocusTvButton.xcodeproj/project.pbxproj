@@ -255,7 +255,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -264,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FocusTvButtonTests/Pods-FocusTvButtonTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
