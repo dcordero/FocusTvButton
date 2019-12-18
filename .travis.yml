@@ -7,8 +7,13 @@ matrix:
     - os: osx
       osx_image: xcode10
       env: DEVICE="Apple TV"
-script:
+before_install:
+  - gem update --system # see https://docs.travis-ci.com/user/languages/ruby/
+  - gem install bundler
   - bundle install
+rvm:
+  - 2.4.1
+script:
   - bundle exec pod repo update
   - bundle exec pod install --project-directory=FocusTvButton/
   - swiftlint
