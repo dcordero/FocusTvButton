@@ -148,7 +148,7 @@ extension FocusTvButton {
     
     open override var isSelected: Bool {
         set {
-            super.isSelected = isSelected
+            super.isSelected = newValue
         }
         get {
             return FocusTvButtonTests.stub_isSelected
