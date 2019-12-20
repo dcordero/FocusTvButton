@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2010-12-20
+
+- Migrate to Swift 5.0
+
 ## [2.2.0] - 2018-10-29
 
 - Use iOSSnapshotTestCase instead of Snap.swift for screenshot tests

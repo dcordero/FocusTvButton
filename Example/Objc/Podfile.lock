@@ -1,5 +1,5 @@
 PODS:
-  - FocusTvButton (2.2.0)
+  - FocusTvButton (3.0.0)
 
 DEPENDENCIES:
   - FocusTvButton (from `../..`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../.."
 
 SPEC CHECKSUMS:
-  FocusTvButton: 35a9419c5aee5bae7d21cfe009441468769743af
+  FocusTvButton: 322ee78a9bf6e9d3f6751be348fbdf0cc2a47958
 
 PODFILE CHECKSUM: 4c1389cd6e79dc352d6b11a17fc297e6917d38dc
 
