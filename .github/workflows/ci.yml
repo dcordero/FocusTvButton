@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+	  - name: Cache RubyGems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gem-
+        
+      - name: Install depencies
+        run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
+  
+      - name: Linter
+        run: swiftlint
+        
+      - name: Test
+        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV 4K,OS=13.0"
+

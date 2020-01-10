@@ -4,5 +4,6 @@ platform :tvos, '10.0'
 use_frameworks!
 
 target 'FocusTvButtonTests' do
+  pod 'SwiftLint', '~> 0.27.0'
   pod 'iOSSnapshotTestCase', '~> 6.2.0'
 end
