@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-	  - name: Cache RubyGems
+      - name: Cache RubyGems
         uses: actions/cache@v1
         with:
           path: vendor/bundle
@@ -24,8 +24,8 @@ jobs:
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
   
       - name: Linter
-        run: swiftlint
+        run: ./FocusTvButton/Pods/SwiftLint/swiftlint
         
       - name: Test
-        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV 4K,OS=13.0"
+        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV 4K,OS=13.2"
 
