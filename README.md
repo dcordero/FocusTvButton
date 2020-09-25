@@ -97,7 +97,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'FocusTvButton', '~> 3.0.0'
+    pod 'FocusTvButton', '~> 3.1.0'
 end
 ```
 
@@ -121,7 +121,7 @@ $ brew install carthage
 To integrate FocusTvButton into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "dcordero/FocusTvButton" ~> 3.0.0
+github "dcordero/FocusTvButton" ~> 3.1.0
 ```
 
 Run carthage update to build the framework and drag the built FocusTvButton.framework into your Xcode project.

@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [3.0.0] - 2010-12-20
+## [3.1.0] - 2020-09-25
+
+- Adjust project to Xcode 12 and tvOS 14
+
+## [3.0.0] - 2019-12-20
 
 - Migrate to Swift 5.0
 
