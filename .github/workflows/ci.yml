@@ -13,19 +13,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Cache RubyGems
-        uses: actions/cache@v1
+      - name: Setup Bundler
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-gem-
-        
+          ruby-version: 2.6
+
       - name: Install depencies
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
-  
+
       - name: Linter
         run: ./FocusTvButton/Pods/SwiftLint/swiftlint
         
-      - name: Test
-        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV 4K,OS=13.2"
+#      Disabled until Xcode12 and tvOS 14 is available in GitHub Actions
+#      - name: Test
+#        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV 4K,OS=14.0"
 

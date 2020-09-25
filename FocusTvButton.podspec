@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.summary = 'Light wrapper of UIButton that allow extra customization for tvOS'
   s.homepage = 'https://github.com/dcordero/FocusTvButton'
   s.source = { :git => 'https://github.com/dcordero/FocusTvButton.git', :tag => s.version }
-  s.tvos.deployment_target = '9.0'
+  s.tvos.deployment_target = '10.2'
   s.source_files = 'FocusTvButton/Source/*.swift'
 end
