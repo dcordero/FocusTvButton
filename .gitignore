@@ -1,6 +1,7 @@
 .DS_Store
 xcuserdata/
 Pods
+.build/
 
 # Snapshot Tests
 FocusTvButton/FocusTvButtonTests/FailureDiffs

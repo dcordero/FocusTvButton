@@ -18,7 +18,7 @@ jobs:
         with:
           ruby-version: 2.6
 
-      - name: Install depencies
+      - name: Install dependencies
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
 
       - name: Linter
