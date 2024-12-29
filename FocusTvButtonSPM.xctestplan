@@ -11,10 +11,6 @@
   "defaultOptions" : {
     "environmentVariableEntries" : [
       {
-        "key" : "SOURCE_ROOT",
-        "value" : "\/Users\/enrgar\/Developer\/tvOS\/FocusTvButton"
-      },
-      {
         "key" : "FB_REFERENCE_IMAGE_DIR",
         "value" : "$(SOURCE_ROOT)\/FocusTvButton\/FocusTvButtonTests\/ReferenceImages"
       },
