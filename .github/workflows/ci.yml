@@ -18,7 +18,7 @@ jobs:
       - name: Set SAFE_SIMULATOR_NAME
         run: |
           echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
-          echo "$SAFE_SIMULATOR_NAME"
+          echo "${SAFE_SIMULATOR_NAME}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,13 +52,6 @@ jobs:
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
             -resultBundlePath TestResults-$SAFE_SIMULATOR_NAME
 
-      - uses: slidoapp/xcresulttool@v3.1.0
-        env:
-          SAFE_SIMULATOR_NAME: $SAFE_SIMULATOR_NAME
-        with:
-          path: TestResults-$SAFE_SIMULATOR_NAME.xcresult
-        if: success() || failure()
-
   swiftpm-test:
     strategy:
       matrix:
@@ -74,7 +67,7 @@ jobs:
       - name: Set SAFE_SIMULATOR_NAME
         run: |
           echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
-          echo "$SAFE_SIMULATOR_NAME"
+          echo "${SAFE_SIMULATOR_NAME}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -100,10 +93,3 @@ jobs:
             -scheme FocusTvButtonSPM \
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
             -resultBundlePath TestResultsSwiftPM-$SAFE_SIMULATOR_NAME
-
-      - uses: slidoapp/xcresulttool@v3.1.0
-        env:
-          SAFE_SIMULATOR_NAME: $SAFE_SIMULATOR_NAME
-        with:
-          path: TestResultsSwiftPM-$SAFE_SIMULATOR_NAME.xcresult
-        if: success() || failure()
