@@ -45,11 +45,11 @@ jobs:
             -workspace FocusTvButton/FocusTvButton.xcworkspace \
             -scheme FocusTvButton \
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
-            -resultBundlePath TestResults
+            -resultBundlePath TestResults-${{ matrix.simulator }}
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResults.xcresult
+          path: TestResults-${{ matrix.simulator }}.xcresult
         if: success() || failure()
 
   swiftpm-test:
@@ -87,9 +87,9 @@ jobs:
           xcodebuild test \
             -scheme FocusTvButtonSPM \
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
-            -resultBundlePath TestResultsSwiftPM
+            -resultBundlePath TestResultsSwiftPM-${{ matrix.simulator }}
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResultsSwiftPM.xcresult
+          path: TestResultsSwiftPM-${{ matrix.simulator }}.xcresult
         if: success() || failure()
