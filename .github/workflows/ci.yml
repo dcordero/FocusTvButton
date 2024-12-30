@@ -1,17 +1,18 @@
 name: CI
 
-on:
-  pull_request:
-    branches:
-      - master
+on: ["push", "workflow_dispatch"]
 
 jobs:
   test:
     runs-on: macOS-latest
-    
+
+    strategy:
+      matrix:
+        simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Setup Bundler
         uses: ruby/setup-ruby@v1
@@ -25,5 +26,30 @@ jobs:
         run: ./FocusTvButton/Pods/SwiftLint/swiftlint
         
       - name: Test
-        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV,OS=16.1"
+        run: |
+          xcodebuild test \
+            -workspace FocusTvButton.xcworkspace \
+            -scheme FocusTvButton \
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}"
 
+  swiftpm-test:
+    runs-on: macOS-latest
+
+    strategy:
+      matrix:
+        simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: update FB_REFERENCE_IMAGE_DIR and IMAGE_DIFF_DIR
+        run: |
+          swift scripts/updateTestPlan.swift
+
+      - name: Build and test SwiftPM
+        run: |
+          swift package resolve
+          xcodebuild test \
+            -scheme FocusTvButtonSPM \
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}"
