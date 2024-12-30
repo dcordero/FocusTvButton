@@ -6,7 +6,7 @@ jobs:
   test:
     strategy:
       matrix:
-        simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+        simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
         xcode: ['16.0']
 
     runs-on: macOS-latest
@@ -34,12 +34,18 @@ jobs:
           xcodebuild test \
             -workspace FocusTvButton/FocusTvButton.xcworkspace \
             -scheme FocusTvButton \
-            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}"
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
+            -resultBundlePath TestResults
+
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+        if: success() || failure()
 
   swiftpm-test:
     strategy:
       matrix:
-        simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+        simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
         xcode: ['16.0']
 
     runs-on: macOS-latest
@@ -60,4 +66,10 @@ jobs:
           swift package resolve
           xcodebuild test \
             -scheme FocusTvButtonSPM \
-            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}"
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
+            -resultBundlePath TestResultsSwiftPM
+
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResultsSwiftPM.xcresult
+        if: success() || failure()
