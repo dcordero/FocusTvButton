@@ -35,12 +35,18 @@ jobs:
         with:
           path: |
             Pods
+            FocusTvButton/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
 
       - name: Install dependencies
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
+
+      - name: List Root Directory Contents
+        run: |
+          ls -la
+          ls -la FocusTvButton
 
       - name: Linter
         run: ./FocusTvButton/Pods/SwiftLint/swiftlint
