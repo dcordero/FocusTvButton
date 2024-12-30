@@ -15,6 +15,9 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
     steps:
+      - name: Set SAFE_SIMULATOR_NAME
+        run: echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -41,7 +44,6 @@ jobs:
         
       - name: Test
         run: |
-          SAFE_SIMULATOR_NAME=$(echo "${{ matrix.simulator }}" | tr ' ' '_')
           xcodebuild test \
             -workspace FocusTvButton/FocusTvButton.xcworkspace \
             -scheme FocusTvButton \
@@ -65,6 +67,9 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
     steps:
+      - name: Set SAFE_SIMULATOR_NAME
+        run: echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -84,7 +89,6 @@ jobs:
 
       - name: Build and test SwiftPM
         run: |
-          SAFE_SIMULATOR_NAME=$(echo "${{ matrix.simulator }}" | tr ' ' '_')
           swift package resolve
           xcodebuild test \
             -scheme FocusTvButtonSPM \
