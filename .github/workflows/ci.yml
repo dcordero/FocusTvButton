@@ -47,7 +47,7 @@ jobs:
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
             -resultBundlePath TestResults
 
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: slidoapp/xcresulttool@v3.1.0
         with:
           path: TestResults.xcresult
         if: success() || failure()
@@ -89,7 +89,7 @@ jobs:
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
             -resultBundlePath TestResultsSwiftPM
 
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: slidoapp/xcresulttool@v3.1.0
         with:
           path: TestResultsSwiftPM.xcresult
         if: success() || failure()
