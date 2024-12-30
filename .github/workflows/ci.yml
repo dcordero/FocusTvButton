@@ -41,6 +41,7 @@ jobs:
         
       - name: Test
         run: |
+          SAFE_SIMULATOR_NAME=$(echo "${{ matrix.simulator }}" | tr ' ' '_')
           xcodebuild test \
             -workspace FocusTvButton/FocusTvButton.xcworkspace \
             -scheme FocusTvButton \
@@ -83,6 +84,7 @@ jobs:
 
       - name: Build and test SwiftPM
         run: |
+          SAFE_SIMULATOR_NAME=$(echo "${{ matrix.simulator }}" | tr ' ' '_')
           swift package resolve
           xcodebuild test \
             -scheme FocusTvButtonSPM \
