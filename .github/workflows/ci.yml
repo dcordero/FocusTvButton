@@ -27,6 +27,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
+          bundler-cache: true
 
       # Cache CocoaPods dependencies
       - name: Cache CocoaPods
@@ -34,9 +35,9 @@ jobs:
         with:
           path: |
             Pods
-          key: ${{ runner.os }}-cocoapods-${{ hashFiles('**/Podfile.lock') }}
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-cocoapods-
+            ${{ runner.os }}-pods-
 
       - name: Install dependencies
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
@@ -86,9 +87,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-swiftpm-
 
-      - name: Build and test SwiftPM
+      - name: Resolve SwiftPM
         run: |
           swift package resolve
+
+      - name: Build and test SwiftPM
+        run: |
           xcodebuild test \
             -scheme FocusTvButtonSPM \
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
