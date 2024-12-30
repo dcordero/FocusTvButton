@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
-        xcode: ['16.0']
+        xcode: ['16.1']
 
     runs-on: macOS-latest
 
@@ -56,7 +56,7 @@ jobs:
     strategy:
       matrix:
         simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
-        xcode: ['16.0']
+        xcode: ['16.1']
 
     runs-on: macOS-latest
 
