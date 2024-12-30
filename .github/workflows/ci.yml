@@ -4,11 +4,15 @@ on: ["push", "workflow_dispatch"]
 
 jobs:
   test:
-    runs-on: macOS-latest
-
     strategy:
       matrix:
         simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+        xcode: ['16.0']
+
+    runs-on: macOS-latest
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
     steps:
       - name: Checkout
@@ -28,16 +32,20 @@ jobs:
       - name: Test
         run: |
           xcodebuild test \
-            -workspace FocusTvButton.xcworkspace \
+            -workspace FocusTvButton/FocusTvButton.xcworkspace \
             -scheme FocusTvButton \
             -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}"
 
   swiftpm-test:
-    runs-on: macOS-latest
-
     strategy:
       matrix:
         simulator: ['Apple TV', 'Apple TV 4K (3nd generation)']
+        xcode: ['16.0']
+
+    runs-on: macOS-latest
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
     steps:
       - name: Checkout
