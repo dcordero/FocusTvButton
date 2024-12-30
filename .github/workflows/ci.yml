@@ -53,8 +53,10 @@ jobs:
             -resultBundlePath TestResults-$SAFE_SIMULATOR_NAME
 
       - uses: slidoapp/xcresulttool@v3.1.0
+        env:
+          SAFE_SIMULATOR_NAME: $SAFE_SIMULATOR_NAME
         with:
-          path: TestResults-${{ SAFE_SIMULATOR_NAME }}.xcresult
+          path: TestResults-$SAFE_SIMULATOR_NAME.xcresult
         if: success() || failure()
 
   swiftpm-test:
@@ -100,6 +102,8 @@ jobs:
             -resultBundlePath TestResultsSwiftPM-$SAFE_SIMULATOR_NAME
 
       - uses: slidoapp/xcresulttool@v3.1.0
+        env:
+          SAFE_SIMULATOR_NAME: $SAFE_SIMULATOR_NAME
         with:
-          path: TestResultsSwiftPM-${{ SAFE_SIMULATOR_NAME }}.xcresult
+          path: TestResultsSwiftPM-$SAFE_SIMULATOR_NAME.xcresult
         if: success() || failure()
