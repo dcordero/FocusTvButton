@@ -16,7 +16,9 @@ jobs:
 
     steps:
       - name: Set SAFE_SIMULATOR_NAME
-        run: echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+        run: |
+          echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+          echo "$SAFE_SIMULATOR_NAME"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,7 +54,7 @@ jobs:
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResults-${{ matrix.simulator }}.xcresult
+          path: TestResults-$SAFE_SIMULATOR_NAME.xcresult
         if: success() || failure()
 
   swiftpm-test:
@@ -68,7 +70,9 @@ jobs:
 
     steps:
       - name: Set SAFE_SIMULATOR_NAME
-        run: echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+        run: |
+          echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+          echo "$SAFE_SIMULATOR_NAME"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -97,5 +101,5 @@ jobs:
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResultsSwiftPM-${{ matrix.simulator }}.xcresult
+          path: TestResultsSwiftPM-$SAFE_SIMULATOR_NAME.xcresult
         if: success() || failure()
