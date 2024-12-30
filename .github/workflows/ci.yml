@@ -54,7 +54,7 @@ jobs:
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResults-$SAFE_SIMULATOR_NAME.xcresult
+          path: TestResults-${{ SAFE_SIMULATOR_NAME }}.xcresult
         if: success() || failure()
 
   swiftpm-test:
@@ -101,5 +101,5 @@ jobs:
 
       - uses: slidoapp/xcresulttool@v3.1.0
         with:
-          path: TestResultsSwiftPM-$SAFE_SIMULATOR_NAME.xcresult
+          path: TestResultsSwiftPM-${{ SAFE_SIMULATOR_NAME }}.xcresult
         if: success() || failure()
