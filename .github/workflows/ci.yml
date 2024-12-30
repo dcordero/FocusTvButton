@@ -23,6 +23,15 @@ jobs:
         with:
           ruby-version: 2.6
 
+      # Cache CocoaPods dependencies
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: Pods
+          key: ${{ runner.os }}-cocoapods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cocoapods-
+
       - name: Install dependencies
         run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
 
@@ -60,6 +69,17 @@ jobs:
       - name: update FB_REFERENCE_IMAGE_DIR and IMAGE_DIFF_DIR
         run: |
           swift scripts/updateTestPlan.swift
+
+      # Cache SwiftPM dependencies
+      - name: Cache SwiftPM Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.swiftpm
+            .build/
+          key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-swiftpm-
 
       - name: Build and test SwiftPM
         run: |
