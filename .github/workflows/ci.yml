@@ -23,12 +23,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Bundler
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
-
       # Cache CocoaPods dependencies
       - name: Cache CocoaPods
         uses: actions/cache@v4
@@ -41,7 +35,7 @@ jobs:
             ${{ runner.os }}-pods-
 
       - name: Install dependencies
-        run: bundle install && bundle exec pod install --deployment --no-repo-update --project-directory=FocusTvButton/
+        run: pod install --deployment --no-repo-update --project-directory=FocusTvButton/
 
       - name: List Root Directory Contents
         run: |
