@@ -30,8 +30,9 @@ func updateDependentVariables(testPlanPath: String, sourceRoot: String) {
         if let range = testPlan.range(of: "\"FB_REFERENCE_IMAGE_DIR\"") {
             if let valueRange = testPlan.range(of: "\"value\" : \"", range: range.upperBound..<testPlan.endIndex) {
                 if let endRange = testPlan.range(of: "\"", range: valueRange.upperBound..<testPlan.endIndex) {
+                    let refSubPath = "/FocusTvButton\\/FocusTvButtonTests\\/ReferenceImages"
                     testPlan.replaceSubrange(valueRange.upperBound..<endRange.lowerBound,
-                                             with: "\(escapedSourceRoot)\\/FocusTvButton\\/FocusTvButtonTests\\/ReferenceImages")
+                                             with: "\(escapedSourceRoot)\\\(refSubPath)")
                 }
             }
         }
@@ -40,8 +41,9 @@ func updateDependentVariables(testPlanPath: String, sourceRoot: String) {
         if let range = testPlan.range(of: "\"IMAGE_DIFF_DIR\"") {
             if let valueRange = testPlan.range(of: "\"value\" : \"", range: range.upperBound..<testPlan.endIndex) {
                 if let endRange = testPlan.range(of: "\"", range: valueRange.upperBound..<testPlan.endIndex) {
+                    let failSubPath = "/FocusTvButton\\/FocusTvButtonTests\\/FailureDiffs"
                     testPlan.replaceSubrange(valueRange.upperBound..<endRange.lowerBound,
-                                             with: "\(escapedSourceRoot)\\/FocusTvButton\\/FocusTvButtonTests\\/FailureDiffs")
+                                             with: "\(escapedSourceRoot)\\\(failSubPath)")
                 }
             }
         }

@@ -28,6 +28,6 @@ let package = Package(
                                     package: "ios-snapshot-test-case")
             ],
             path: "FocusTvButton/FocusTvButtonTests"
-        ),
+        )
     ]
 )
