@@ -1,29 +1,105 @@
 name: CI
 
-on:
-  pull_request:
-    branches:
-      - master
+on: ["push", "workflow_dispatch"]
 
 jobs:
   test:
+    strategy:
+      matrix:
+        simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
+        xcode: ['16.1']
+
     runs-on: macOS-latest
-    
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+
     steps:
+      - name: Set SAFE_SIMULATOR_NAME
+        run: |
+          echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+          echo "${SAFE_SIMULATOR_NAME}"
+
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
-      - name: Setup Bundler
-        uses: ruby/setup-ruby@v1
+      # Cache CocoaPods dependencies
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
         with:
-          ruby-version: 2.6
+          path: |
+            Pods
+            FocusTvButton/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
 
-      - name: Install depencies
-        run: bundle install && bundle exec pod install --project-directory=FocusTvButton/
+      - name: Install dependencies
+        run: pod install --deployment --no-repo-update --project-directory=FocusTvButton/
+
+      - name: List Root Directory Contents
+        run: |
+          ls -la
+          ls -la FocusTvButton
 
       - name: Linter
         run: ./FocusTvButton/Pods/SwiftLint/swiftlint
         
       - name: Test
-        run: xcodebuild test -workspace FocusTvButton/FocusTvButton.xcworkspace -scheme FocusTvButton -destination "platform=tvOS Simulator,name=Apple TV,OS=16.1"
+        run: |
+          xcodebuild test \
+            -workspace FocusTvButton/FocusTvButton.xcworkspace \
+            -scheme FocusTvButton \
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
+            -resultBundlePath TestResults-$SAFE_SIMULATOR_NAME \
+            | xcbeautify
+        env:
+          NSUnbufferedIO: "YES"
 
+  swiftpm-test:
+    strategy:
+      matrix:
+        simulator: ['Apple TV', 'Apple TV 4K (3rd generation)']
+        xcode: ['16.1']
+
+    runs-on: macOS-latest
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+
+    steps:
+      - name: Set SAFE_SIMULATOR_NAME
+        run: |
+          echo "SAFE_SIMULATOR_NAME=$(echo '${{ matrix.simulator }}' | tr ' ' '_')" >> $GITHUB_ENV
+          echo "${SAFE_SIMULATOR_NAME}"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: update FB_REFERENCE_IMAGE_DIR and IMAGE_DIFF_DIR
+        run: |
+          swift scripts/updateTestPlan.swift
+
+      # Cache SwiftPM dependencies
+      - name: Cache SwiftPM Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .build/
+          key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-swiftpm-
+
+      - name: Resolve SwiftPM
+        run: |
+          swift package resolve
+
+      - name: Build and test SwiftPM
+        run: |
+          xcodebuild test \
+            -scheme FocusTvButtonSPM \
+            -destination "platform=tvOS Simulator,name=${{ matrix.simulator }}" \
+            -resultBundlePath TestResultsSwiftPM-$SAFE_SIMULATOR_NAME \
+            | xcbeautify
+        env:
+          NSUnbufferedIO: "YES"

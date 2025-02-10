@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         button.normalBackgroundColor = .lightGray
         button.cornerRadius = button.bounds.width / 2
         button.setTitle("Button", for: .normal)
-        
+
         view.addSubview(button)
     }
 }

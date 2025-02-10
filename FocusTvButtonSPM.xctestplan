@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "43A365C8-2AFC-4557-954B-3193B5B3BF95",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "FB_REFERENCE_IMAGE_DIR",
+        "value" : "$(SOURCE_ROOT)\/FocusTvButton\/FocusTvButtonTests\/ReferenceImages"
+      },
+      {
+        "key" : "IMAGE_DIFF_DIR",
+        "value" : "$(SOURCE_ROOT)\/FocusTvButton\/FocusTvButtonTests\/FailureDiffs"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:",
+      "identifier" : "FocusTvButtonTests",
+      "name" : "FocusTvButtonTests"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "FocusTvButtonTests",
+        "name" : "FocusTvButtonTests"
+      }
+    }
+  ],
+  "version" : 1
+}

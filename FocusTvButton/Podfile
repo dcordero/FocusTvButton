@@ -1,9 +1,9 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
-platform :tvos, '10.0'
+platform :tvos, '11.0'
 use_frameworks!
 
 target 'FocusTvButtonTests' do
-  pod 'SwiftLint', '~> 0.27.0'
-  pod 'iOSSnapshotTestCase', '~> 6.2.0'
+  pod 'SwiftLint', '~> 0.57.1'
+  pod 'iOSSnapshotTestCase', '~> 7.0.0'
 end
